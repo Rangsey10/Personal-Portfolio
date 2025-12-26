@@ -1,4 +1,34 @@
 // ============================================
+// MOBILE HAMBURGER MENU
+// ============================================
+
+const hamburger = document.querySelector('.hamburger');
+const navLinksContainer = document.querySelector('.nav-links');
+const navLinksItems = document.querySelectorAll('.nav-links a');
+
+// Toggle menu on hamburger click
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinksContainer.classList.toggle('active');
+});
+
+// Close menu when clicking a nav link
+navLinksItems.forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinksContainer.classList.remove('active');
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!hamburger.contains(e.target) && !navLinksContainer.contains(e.target)) {
+    hamburger.classList.remove('active');
+    navLinksContainer.classList.remove('active');
+  }
+});
+
+// ============================================
 // SMOOTH SCROLLING FOR NAVIGATION LINKS
 // ============================================
 
